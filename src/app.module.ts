@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module } from "@nestjs/common";
+import { Logger, MiddlewareConsumer, Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { MongooseModule } from "@nestjs/mongoose";
 import { AuthModule } from "./modules/auth/auth.module";
@@ -16,7 +16,7 @@ import { LoggerMiddleware } from "./common/middlewares/logger.middleware";
       useFactory: async (configService: ConfigService) => ({
         uri: configService.get<string>("MONGO_URI"),
         connectionFactory: (connection) => {
-          console.log("MongoDB Connected successfully");
+          Logger.log("MongoDB Connected successfully");
           return connection;
         },
       }),
