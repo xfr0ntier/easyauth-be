@@ -13,6 +13,15 @@ Easyauth, a simple auth api based on NestJS, MongoDB, and JWT
 $ npm install
 ```
 
+You can setup the database using docker for convience, but be sure to load env variables first. You can use the `ci-dev.sh` script to load the variables before laucnhing the database.
+
+```bash
+# loading env variables for convience
+bash ./ci-dev.sh
+
+docekr compose up -d
+```
+
 ## Compile and run the project
 
 ```bash
